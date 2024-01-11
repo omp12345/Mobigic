@@ -22,7 +22,7 @@ function Navbar() {
         Authorization: `Bearer ${token}`,
       };
 
-      const response = await axios.get(`${url}/api/user/logout`, {
+      const response = await axios.get(`https://perfect-pear-dibbler.cyclic.app/api/user/logout`, {
         headers: headers,
       });
 
