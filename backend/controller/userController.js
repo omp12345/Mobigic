@@ -8,15 +8,15 @@ const { blacklist } = require('../blacklist');
 
 exports.registerUser = async (req, res) => {
   try {
-    const existingUser = await User.findOne({ email: req.body.email });
+    const existingUser = await User.findOne({ username: req.body.username });
     if (existingUser) {
       return res.status(201).json({ message: 'User already exists' });
     }
 
-    const { username, email, password, role ,age } = req.body;
+    const { username, password } = req.body;
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const user = new User({ username, email, password: hashedPassword, role,age });
+    const user = new User({ username,  password: hashedPassword });
     await user.save();
     res.status(201).json({ message: `${username} registration is successful`,registerdata:req.body });
   } catch (error) {
@@ -36,7 +36,7 @@ exports.loginUser = async (req, res) => {
     if (!isPasswordValid) {
       return res.status(401).json({ message: 'Authentication failed' });
     }
-    const token = jwt.sign({ userId: user._id,username: username}, process.env.SECRET_KEY,{expiresIn:"10m"});
+    const token = jwt.sign({ userId: user._id,username: username}, process.env.SECRET_KEY,{expiresIn:"1h"});
     res.status(200).json({ token:token,msg:"Login Succersfully" });
    
   } catch (error) {
@@ -44,7 +44,7 @@ exports.loginUser = async (req, res) => {
   }
 };
 
-
+// controller for user logout
 exports.logoutuser=(req,res)=>{
   const token = req.headers.authorization?.split(" ")[1]
 try {

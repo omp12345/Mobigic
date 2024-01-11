@@ -1,0 +1,5 @@
+export const File_REQUEST = "File_REQUEST"
+ export const Post_File_SUCCESS = "Post_File_SUCCESS"
+ export const GET_File_SUCCESS  = "GET_File_SUCCESS"
+ export const File_FAILURE = "File_FAILURE"
+ export const Delete_Sucsee="Delete_Sucsees"
