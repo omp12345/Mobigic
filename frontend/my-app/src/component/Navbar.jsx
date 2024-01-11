@@ -22,7 +22,7 @@ function Navbar() {
         Authorization: `Bearer ${token}`,
       };
 
-      const response = await axios.get(`https://perfect-pear-dibbler.cyclic.app/api/user/logout`, {
+      const response = await axios.get(`${url}/api/user/logout`, {
         headers: headers,
       });
 
@@ -50,7 +50,7 @@ function Navbar() {
         </li>
         <li>
          {token?<Link to="/file">upload_file</Link>:(
-            <Link to="/login">Login</Link>
+          null
           )} 
         </li>
         <li>

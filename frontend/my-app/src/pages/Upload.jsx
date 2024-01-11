@@ -18,6 +18,7 @@ function Upload() {
     const handleUpload=()=>{
 dispatch(addfile(formData))
 alert("File added succesfully")
+window.location.reload()
     }
   return (
     <div className="flex items-center space-x-4">

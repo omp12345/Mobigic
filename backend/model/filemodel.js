@@ -10,9 +10,7 @@ const FileuploadSchema = mongoose.Schema({
   username: {
     type: String,
   },
-  shahid: {
-    type: String,
-  },
+
 });
 // collection for file
 

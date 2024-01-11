@@ -1,1 +1,1 @@
-export const url="http://localhost:8085"
+export const url="https://perfect-pear-dibbler.cyclic.app/"

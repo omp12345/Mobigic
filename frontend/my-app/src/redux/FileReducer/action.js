@@ -18,7 +18,7 @@ export const addfile = (file) => (dispatch) => {
         Authorization: `Bearer ${token}`,
       };
 dispatch({type:File_REQUEST})
- return axios.post(`https://perfect-pear-dibbler.cyclic.app/uploadfiles/upload`,file,{
+ return axios.post(`${url}/uploadfiles/upload`,file,{
     headers:headers 
  })
 .then((res)=>{
@@ -39,7 +39,7 @@ export const getFile = () => (dispatch) => {
         Authorization: `Bearer ${token}`,
       };
 dispatch({type:File_REQUEST})
- return axios.get(`https://perfect-pear-dibbler.cyclic.app/uploadfiles/`,{
+ return axios.get(`${url}/uploadfiles/`,{
     headers:headers 
  })
 .then((res)=>{
@@ -54,7 +54,7 @@ console.log(res.data)
 };
 
 
-// delete file
+// dowounload file
 export const download_file = (private_code,id) => (dispatch) => {
     console.log(private_code,id)
     const token = localStorage.getItem("token");
@@ -63,7 +63,7 @@ export const download_file = (private_code,id) => (dispatch) => {
         Authorization: `Bearer ${token}`,
       };
 dispatch({type:File_REQUEST})
- return axios.get(`$https://perfect-pear-dibbler.cyclic.app/uploadfiles/delete/${id}/${private_code}`,{
+ return axios.get(`${url}/uploadfiles/delete/${id}/${private_code}`,{
     headers:headers 
  })
 .then((res)=>{
@@ -74,7 +74,8 @@ dispatch({type:Download})
   dispatch({type:File_FAILURE})
 })
 };
-// dowounload file
+
+// delete file
 export const delete_file = (id) => (dispatch) => {
     
     const token = localStorage.getItem("token");
@@ -83,7 +84,7 @@ export const delete_file = (id) => (dispatch) => {
         Authorization: `Bearer ${token}`,
       };
 dispatch({type:File_REQUEST})
- return axios.delete(`https://perfect-pear-dibbler.cyclic.app/uploadfiles/delete/${id}`,{
+ return axios.delete(`${url}/uploadfiles/delete/${id}`,{
     headers:headers 
  })
 .then((res)=>{

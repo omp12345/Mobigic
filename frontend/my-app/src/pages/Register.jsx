@@ -32,7 +32,7 @@ const handleSubmit = (e) => {
             username,password
           }
           dispatch(register(user))
-    
+    alert("user register succsesfully")
   
   
   setUsername("")
