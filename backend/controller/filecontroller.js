@@ -40,7 +40,8 @@ const deleteFile = async (req, res) => {
   const { id } = req.params;
   const userID = req.body.userId;
 
-  const file_data = await file_upload.find({ _id: id });
+  const file_data = await file_upload.findOne({ _id: id });
+ 
   const userdataId = file_data.userId;
 
   if (userdataId === userID) {
@@ -51,7 +52,7 @@ const deleteFile = async (req, res) => {
       res.status(404).json("file not found");
     }
   } else {
-    res.status(403).json("Permission denied");
+    res.status(403).json("permission denied");
   }
 };
 

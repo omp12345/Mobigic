@@ -2,7 +2,7 @@ import axios from "axios";
 import { Registe_request, Register_faliure, Register_success } from "./actionTypes";
 import { url } from "../../url";
 
-
+// register action
 export const register = (userData) => (dispatch) => {
 dispatch({type:Registe_request})
  return axios.post(`${url}/api/user/register`,userData)

@@ -2,10 +2,13 @@
   
 import axios from "axios";
 
-import { Delete_Sucsee, File_FAILURE, File_REQUEST, GET_File_SUCCESS, Post_File_SUCCESS } from "./actionTypes";
+import { Delete_Sucsee, Download, File_FAILURE, File_REQUEST, GET_File_SUCCESS, Post_File_SUCCESS } from "./actionTypes";
 import { url } from "../../url";
+import { useParams } from "react-router-dom";
 
 
+
+// ADD file action
 
 export const addfile = (file) => (dispatch) => {
     console.log(file)
@@ -28,6 +31,8 @@ console.log(res.data)
   dispatch({type:File_FAILURE})
 })
 };
+
+// getall file from user
 export const getFile = () => (dispatch) => {
     const token = localStorage.getItem("token");
       const headers = {
@@ -48,8 +53,30 @@ console.log(res.data)
 })
 };
 
+
+// delete file
+export const download_file = (private_code,id) => (dispatch) => {
+    console.log(private_code,id)
+    const token = localStorage.getItem("token");
+    console.log(token)
+      const headers = {
+        Authorization: `Bearer ${token}`,
+      };
+dispatch({type:File_REQUEST})
+ return axios.get(`${url}/uploadfiles/delete/${id}/${private_code}`,{
+    headers:headers 
+ })
+.then((res)=>{
+dispatch({type:Download})
+  
+})
+.catch((err)=> {
+  dispatch({type:File_FAILURE})
+})
+};
+// dowounload file
 export const delete_file = (id) => (dispatch) => {
-   
+    
     const token = localStorage.getItem("token");
     console.log(token)
       const headers = {

@@ -4,7 +4,7 @@ import axios from "axios";
 import { LOGIN_FAILURE, LOGIN_REQUEST, LOGIN_SUCCESS } from "./actionTypes";
 import { url } from "../../url";
 
-
+// auth action 
 
 export const login = (userData) => (dispatch) => {
 dispatch({type:LOGIN_REQUEST})
