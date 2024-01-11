@@ -11,26 +11,30 @@ import { useParams } from "react-router-dom";
 // ADD file action
 
 export const addfile = (file) => (dispatch) => {
-    console.log(file)
-    const token = localStorage.getItem("token");
-    console.log(token)
-      const headers = {
-        Authorization: `Bearer ${token}`,
-      };
-dispatch({type:File_REQUEST})
- return axios.post(`${url}/uploadfiles/upload`,file,{
-    headers:headers 
- })
-.then((res)=>{
-console.log(res.data)
-  dispatch({type:Post_File_SUCCESS, payload:res.data})
-  
-  dispatch({type:GET_File_SUCCESS,payload:res.data})
-})
-.catch((err)=> {
-  dispatch({type:File_FAILURE})
-})
+  const token = localStorage.getItem("token");
+  const headers = {
+    Authorization: `Bearer ${token}`,
+  };
+
+  dispatch({ type: File_REQUEST });
+
+  const formData = new FormData();
+  formData.append('om', file);
+
+  return axios
+    .post(`https://perfect-pear-dibbler.cyclic.app/uploadfiles/upload`, formData, {
+      headers: headers,
+    })
+    .then((res) => {
+      console.log(res.data);
+      dispatch({ type: Post_File_SUCCESS, payload: res.data });
+      dispatch({ type: GET_File_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({ type: File_FAILURE });
+    });
 };
+
 
 // getall file from user
 export const getFile = () => (dispatch) => {

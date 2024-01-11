@@ -49,9 +49,9 @@ function Navbar() {
           <Link to="/">Home</Link>
         </li>
         <li>
-         {token?<Link to="/file">upload_file</Link>:(
-          null
-          )} 
+         {<Link to="/file">{token?"upload_file":null}</Link>
+          
+          } 
         </li>
         <li>
           <Link to="/register">Register</Link>

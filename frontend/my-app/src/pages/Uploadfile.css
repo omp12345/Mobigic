@@ -1,0 +1,123 @@
+/* uploaded-files.css (or include these styles in your existing stylesheets) */
+
+/* Container for the uploaded files */
+.uploaded-files-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /* Style for each file item *//* uploaded-files.css (or include these styles in your existing stylesheets) */
+
+/* Container for the uploaded files */
+.uploaded-files-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Style for each file item */
+.file-item {
+    width: 50%; /* Adjust the width as needed */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+/* Style for the image within each file item */
+.file-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+/* Style for the delete and download buttons */
+.file-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+/* Individual button style */
+.delete-button {
+    background-color: #e74c3c; /* Red color for delete button */
+    color: #fff;
+    padding: 8px 12px;
+    margin-right: 8px; /* Add right margin for spacing */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-button:hover {
+    background-color: #c0392b; /* Darker red on hover */
+}
+
+.download-button {
+    background-color: #3498db; /* Blue color for download button */
+    color: #fff;
+    padding: 8px 12px;
+    margin-left: 8px; /* Add left margin for spacing */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.download-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+/* Message when no files are uploaded */
+.no-files-message {
+    margin-top: 20px;
+    color: #888;
+}
+
+  .file-item {
+    width: 50%; /* Adjust the width as needed */
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+  }
+  
+  /* Style for the image within each file item */
+  .file-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  /* Style for the delete and download buttons */
+  .file-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  /* Individual button style */
+  .file-button {
+    background-color: #3498db;
+    color: #fff;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .file-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Message when no files are uploaded */
+  .no-files-message {
+    margin-top: 20px;
+    color: #888;
+  }
+  
