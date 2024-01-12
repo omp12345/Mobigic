@@ -13,9 +13,10 @@ function Upload() {
   const dispatch = useDispatch();
   const [file, setFile] = useState(null);
 
-  const handleFileChange = (e) => {
-    setFile(e.target.files[0]);
-  };
+  // const handleFileChange = (e) => {
+  //   console.log( "e.target/file", e.target.files)
+  //   setFile(e.target.files[0]);
+  // };""
 
   const handleUpload = () => {
     if (!file) {
@@ -25,10 +26,12 @@ function Upload() {
 
     const formData = new FormData();
     formData.append('om', file);
+   
 
     dispatch(addfile(formData));
     alert('File added successfully');
-    window.location.reload()
+    
+    
   };
 
   return (
@@ -41,11 +44,13 @@ function Upload() {
       </label>
       <input
         type="file"
-        name="filename"
+       
         id="fileInput"
         accept=".txt, .pdf, .png, .jpg, .jpeg"
-        className="hidden"
-        onChange={handleFileChange}
+       
+        onChange={(e)=>{
+setFile(e.target.files[0])
+        }}
       />
       <button
         onClick={handleUpload}

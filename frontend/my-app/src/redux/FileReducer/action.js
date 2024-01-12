@@ -11,6 +11,7 @@ import { useParams } from "react-router-dom";
 // ADD file action
 
 export const addfile = (file) => (dispatch) => {
+ 
   const token = localStorage.getItem("token");
   const headers = {
     Authorization: `Bearer ${token}`,
@@ -18,11 +19,10 @@ export const addfile = (file) => (dispatch) => {
 
   dispatch({ type: File_REQUEST });
 
-  const formData = new FormData();
-  formData.append('om', file);
+  
 
   return axios
-    .post(`https://perfect-pear-dibbler.cyclic.app/uploadfiles/upload`, formData, {
+    .post(`https://perfect-pear-dibbler.cyclic.app/uploadfiles/upload`, file, {
       headers: headers,
     })
     .then((res) => {
@@ -43,11 +43,11 @@ export const getFile = () => (dispatch) => {
         Authorization: `Bearer ${token}`,
       };
 dispatch({type:File_REQUEST})
- return axios.get(`${url}/uploadfiles/`,{
+ return axios.get(`https://perfect-pear-dibbler.cyclic.app/uploadfiles/`,{
     headers:headers 
  })
 .then((res)=>{
-console.log(res.data)
+
   
   
   dispatch({type:GET_File_SUCCESS,payload:res.data})
@@ -67,7 +67,7 @@ export const download_file = (private_code,id) => (dispatch) => {
         Authorization: `Bearer ${token}`,
       };
 dispatch({type:File_REQUEST})
- return axios.get(`${url}/uploadfiles/delete/${id}/${private_code}`,{
+ return axios.get(`https://perfect-pear-dibbler.cyclic.app/uploadfiles/download/${id}/${private_code}`,{
     headers:headers 
  })
 .then((res)=>{
@@ -81,14 +81,15 @@ dispatch({type:Download})
 
 // delete file
 export const delete_file = (id) => (dispatch) => {
+  
     
     const token = localStorage.getItem("token");
-    console.log(token)
+    
       const headers = {
         Authorization: `Bearer ${token}`,
       };
 dispatch({type:File_REQUEST})
- return axios.delete(`${url}/uploadfiles/delete/${id}`,{
+ return axios.delete(`https://perfect-pear-dibbler.cyclic.app/uploadfiles/delete/${id}`,{
     headers:headers 
  })
 .then((res)=>{

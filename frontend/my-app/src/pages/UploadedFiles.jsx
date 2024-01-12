@@ -18,10 +18,13 @@ function UploadedFiles() {
   const handledelte = (id) => {
     console.log(id);
     dispatch(delete_file(id));
-    window.location.reload()
+    alert(`${id},s file is deleted `)
+    window.location.reload("/file")
+  
   };
 
   const data = useSelector((state) => state.fileReducer.result);
+ 
 
   const handldownload = (code, id) => {
     dispatch(download_file(code, id));
@@ -34,7 +37,7 @@ function UploadedFiles() {
         <div>
           {data.map((file) => (
             <div className="file-item" key={file._id}>
-              <img className="file-image" src={file.url} alt={file._id} />
+            {file.url?<img className="file-image" src={file.url} alt={file._id} />:<img src="https://cdn.pixabay.com/photo/2016/07/07/16/46/dice-1502706_640.jpg"/>}
               <div className="file-buttons">
                 <button
                   className="file-button"

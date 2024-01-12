@@ -8,7 +8,7 @@ import { url } from "../../url";
 
 export const login = (userData) => (dispatch) => {
 dispatch({type:LOGIN_REQUEST})
- return axios.post(`${url}/api/user/login`,userData)
+ return axios.post(`https://perfect-pear-dibbler.cyclic.app/api/user/login`,userData)
 .then((res)=>{
     console.log(res.data.token)
     localStorage.setItem("token",res.data.token)

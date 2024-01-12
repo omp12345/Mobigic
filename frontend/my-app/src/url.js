@@ -1,1 +1,1 @@
-export const url="https://perfect-pear-dibbler.cyclic.app/"
+export const url="https://perfect-pear-dibbler.cyclic.app"
